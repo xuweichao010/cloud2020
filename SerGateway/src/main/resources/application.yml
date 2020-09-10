@@ -1,0 +1,16 @@
+server:
+  port: 8000
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 111.231.70.37:8848
+        namespace: demo
+    gateway:
+      routes:
+        - id: providerId
+          uri: lb://providerService
+          predicates:
+            - Path=/api/provider/**
+          filters:
+            - StripPrefix=2
