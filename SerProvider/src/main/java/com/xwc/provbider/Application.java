@@ -1,5 +1,6 @@
 package com.xwc.provbider;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -37,6 +38,7 @@ public class Application {
     }
 
     @GetMapping("/test")
+    @ApiOperation("这是一个测试类")
     public String test() {
         return "hello I'm Test ";
     }
