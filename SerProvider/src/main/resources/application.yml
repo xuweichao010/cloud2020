@@ -8,4 +8,3 @@ spring:
         namespace: demo
   application:
     name: providerService
-

@@ -46,7 +46,7 @@ public class DocumentationConfig implements SwaggerResourcesProvider {
         SwaggerResource swaggerResource = new SwaggerResource();
         swaggerResource.setName(name);
         swaggerResource.setLocation(location);
-        swaggerResource.setSwaggerVersion(DocumentationType.SWAGGER_2.getVersion());
+        swaggerResource.setSwaggerVersion(DocumentationType.OAS_30.getVersion());
         return swaggerResource;
     }
 }
