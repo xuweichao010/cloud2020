@@ -27,13 +27,14 @@ public class DocumentationConfig implements SwaggerResourcesProvider {
 
     @Override
     public List<SwaggerResource> get() {
-        return gatewayProperties.getRoutes().stream()
+        List<SwaggerResource> list = gatewayProperties.getRoutes().stream()
                 .filter(router -> StringUtils.hasText(router.getId()) && router.getPredicates() != null
                         && !router.getPredicates().isEmpty())
                 .map(router ->
                         swaggerResource(router.getId(), getPath(router.getPredicates()))
                 ).collect(Collectors.toList());
-
+        list.add(swaggerResource("网关", "/v3/api-docs"));
+        return list;
     }
 
     private String getPath(List<PredicateDefinition> predicateList) {
